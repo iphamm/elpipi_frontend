@@ -50,11 +50,14 @@ const loading = ref(false)
 const error   = ref('')
 
 async function handleLogin() {
+  console.log("Tombol ditekan, mencoba login..."); // TAMBAHKAN INI
   loading.value = true; error.value = ''
   try {
     await auth.login(form.email, form.password)
+    console.log("Login sukses!"); // TAMBAHKAN INI
     router.push('/')
   } catch (e) {
+    console.error("Error login:", e); // TAMBAHKAN INI
     error.value = e.response?.data?.message || 'Login gagal. Periksa email dan password.'
   } finally {
     loading.value = false
