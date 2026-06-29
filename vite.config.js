@@ -4,9 +4,11 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  resolve: { alias: { '@': path.resolve(__dirname, './src') } },
+  resolve: { 
+    alias: { '@': path.resolve(__dirname, './src') } 
+  },
   server: {
-    port: 5173,
-    proxy: { '/api': { target: 'http://localhost:3000', changeOrigin: true } }
+    port: 5173
+    // Proxy dihapus karena sekarang kita menggunakan URL backend Railway langsung
   }
 })
